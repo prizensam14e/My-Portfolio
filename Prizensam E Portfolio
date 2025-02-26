@@ -1,0 +1,113 @@
+import React from "react";
+import { FaEnvelope, FaPhone, FaLinkedin, FaGithub } from "react-icons/fa";
+import { Card, CardContent } from "@/components/ui/card";
+
+const Portfolio = () => {
+  return (
+    <div className="p-6 max-w-4xl mx-auto">
+      <header className="text-center mb-8">
+        <h1 className="text-4xl font-bold">PRIZENSAM E</h1>
+        <p className="flex justify-center gap-4 mt-2 text-lg">
+          <a href="mailto:prizensam14@gmail.com" className="flex items-center gap-1">
+            <FaEnvelope />prizensam14@gmail.com
+          </a>
+          <span className="flex items-center gap-1">
+            <FaPhone /> +91 6369625407
+          </span>
+          <a href="https://linkedin.com/in/prizensam-e" className="flex items-center gap-1">
+            <FaLinkedin /> LinkedIn
+          </a>
+          <a href="https://github.com/prizensam14e" className="flex items-center gap-1">
+            <FaGithub /> GitHub
+          </a>
+        </p>
+      </header>
+      
+      <section className="mb-8">
+        <h2 className="text-2xl font-bold mb-4">Technical Skills</h2>
+        <ul className="list-disc pl-5">
+          <li><strong>Languages, Databases & Data Science:</strong> Python, SQL, NoSQL-MongoDB, AI & ML</li>
+          <li><strong>Data Analysis:</strong> Pandas, NumPy, Data Cleaning, Data Processing, Feature Engineering</li>
+          <li><strong>Data Visualization:</strong> Matplotlib, Seaborn, Power BI, Tableau, Microsoft Excel</li>
+          <li><strong>Computer Vision:</strong> OpenCV (Image Processing, Object Detection, Face Recognition)</li>
+        </ul>
+      </section>
+      
+      <section className="mb-8">
+        <h2 className="text-2xl font-bold mb-4">Professional Skills</h2>
+        <p>Analytical thinking, problem-solving, communication, and team collaboration. Leadership, time management, multitasking, attention to detail, and data-driven decision-making.</p>
+      </section>
+      
+      <section className="mb-8">
+        <h2 className="text-2xl font-bold mb-4">Experience</h2>
+        {internships.map((internship, index) => (
+          <Card key={index} className="mb-4 p-4 border rounded-lg shadow-md">
+            <CardContent>
+              <h3 className="text-xl font-semibold">{internship.title}</h3>
+              <p className="text-gray-600">{internship.company} | {internship.period}</p>
+              <p className="mt-2">{internship.description}</p>
+              <a href={internship.link} className="text-blue-500" target="_blank" rel="noopener noreferrer">
+                View Certificate
+              </a>
+            </CardContent>
+          </Card>
+        ))}
+      </section>
+      
+      <section className="mb-8">
+        <h2 className="text-2xl font-bold mb-4">Projects</h2>
+        <ul className="list-disc pl-5">
+          {projects.map((project, index) => (
+            <li key={index}><strong>{project.title}</strong> - {project.description}</li>
+          ))}
+        </ul>
+      </section>
+      
+      <section className="mb-8">
+        <h2 className="text-2xl font-bold mb-4">Certifications</h2>
+        <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/MyXvBcppsW2FkNYCX_ifobHAoMjQs9s6bKS_p5ZKwATchgPBWAe6n_1739390170939_completion_certificate.pdf" className="text-blue-500" target="_blank" rel="noopener noreferrer">
+          TATA - Data Visualization Certification
+        </a>
+      </section>
+      
+      <section>
+        <h2 className="text-2xl font-bold mb-4">Education</h2>
+        <p><strong>Karpagam College of Engineering, Coimbatore, Tamil Nadu</strong></p>
+        <p>B.E. in Electronics & Communication Engineering (Nov 2020 - May 2024)</p>
+      </section>
+    </div>
+  );
+};
+
+const internships = [
+  {
+    title: "Machine Learning Intern",
+    company: "NoviTech R&D Pvt Ltd, Coimbatore, India",
+    period: "Dec 2024 – Jan 2025",
+    description: "Built machine learning models and visualized results using Matplotlib and Seaborn. Gained hands-on experience in Deep Learning and NLP fundamentals.",
+    link: "https://drive.google.com/file/d/1-sORUT3zdxtvHVnavp-V5oz4kCzfKD1D/view?usp=drive_link"
+  },
+  {
+    title: "Artificial Intelligence Intern",
+    company: "NoviTech R&D Pvt Ltd, Coimbatore, India",
+    period: "Sep 2024 – Oct 2024",
+    description: "Developed AI models and optimized performance using large datasets. Worked on Face Recognition and Face Emotion Recognition projects.",
+    link: "https://drive.google.com/file/d/1mGvDyKnVLM5LI19LvJyaRXDY9T2DOojy/view?usp=drive_link"
+  },
+  {
+    title: "Data Analytics Intern",
+    company: "NoviTech R&D Pvt Ltd, Coimbatore, India",
+    period: "June 2024 – July 2024",
+    description: "Collected, cleaned, and preprocessed large datasets for analysis. Developed dashboards using Power BI and Tableau for data-driven decision-making.",
+    link: "https://drive.google.com/file/d/1ieVmyWbfskDgeYdOPFOdFyLDxF-pZOkj/view?usp=drive_link"
+  }
+];
+
+const projects = [
+  { title: "House Price Prediction using Linear Regression", description: "Predicted house prices based on key economic indicators. (Oct 2024)" },
+  { title: "Advertisement Sale Prediction using Logistic Regression", description: "Predicted ad conversion rates using historical customer data. (Nov 2024)" },
+  { title: "Customer Spent Analysis using K-Means Clustering", description: "Performed customer segmentation to identify high-value customers and spending patterns. (Dec 2024)" },
+  { title: "Market Basket Analysis using Apriori Algorithm", description: "Analyzed transactional data to recommend product bundling strategies. (Jan 2025)" }
+];
+
+export default Portfolio;
